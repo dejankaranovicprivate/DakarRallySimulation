@@ -1,0 +1,5 @@
+D:\KDProjectsTrening\DakarRally\DakarRallySimulation\DakarRallySimulation.Data\bin\Debug\DakarRallySimulation.Data.dll
+D:\KDProjectsTrening\DakarRally\DakarRallySimulation\DakarRallySimulation.Data\bin\Debug\DakarRallySimulation.Data.pdb
+D:\KDProjectsTrening\DakarRally\DakarRallySimulation\DakarRallySimulation.Data\obj\Debug\DakarRallySimulation.Data.csproj.CoreCompileInputs.cache
+D:\KDProjectsTrening\DakarRally\DakarRallySimulation\DakarRallySimulation.Data\obj\Debug\DakarRallySimulation.Data.dll
+D:\KDProjectsTrening\DakarRally\DakarRallySimulation\DakarRallySimulation.Data\obj\Debug\DakarRallySimulation.Data.pdb
