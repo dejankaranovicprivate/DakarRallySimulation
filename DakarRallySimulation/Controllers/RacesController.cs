@@ -12,7 +12,6 @@ namespace DakarRallySimulation.Controllers
 {
     public class RacesController : ApiController
     {
-        //private IRaceRepository races = new RaceRepository();
         private IRaceRepository races;
 
         public RacesController(IRaceRepository _races)
@@ -20,19 +19,21 @@ namespace DakarRallySimulation.Controllers
             this.races = _races;
         }
 
-        // POST api/values
         public void Post([FromBody]int year)
         {
             races.AddRace(year);
         }
 
-        // GET api/Races
+        public void Put(int id)
+        {
+            races.StartTheRace(id);
+        }
+
         public IEnumerable<Race> Get()
         {
             return races.GetAllRaces();
         }
 
-        // GET api/Races/5
         public IHttpActionResult Get(int id)
         {
             var race = races.GetRace(id);

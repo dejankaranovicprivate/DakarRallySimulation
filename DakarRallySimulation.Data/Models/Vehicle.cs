@@ -9,6 +9,8 @@ namespace DakarRallySimulation.Data.Models
     {
         public int Id { set; get; }
 
+        public int RaceId { set; get; }
+
         public VehicleStatus Status { set; get; }
 
         public string TeamName { set; get; }

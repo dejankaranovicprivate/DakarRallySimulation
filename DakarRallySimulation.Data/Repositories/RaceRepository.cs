@@ -21,6 +21,11 @@ namespace DakarRallySimulation.Data.Repositories
             });
         }
 
+        public void StartTheRace(int id)
+        {
+            SqliteDataAccess.StartTheRace(id);
+        }
+
         public List<Race> GetAllRaces()
         {
             return SqliteDataAccess.GetRaces();

@@ -10,9 +10,8 @@ namespace DakarRallySimulation.Data.Interfaces
     public interface IRaceRepository
     {
         void AddRace(int year);
-
+        void StartTheRace(int id);
         List<Race> GetAllRaces();
-
         Race GetRace(int id);
     }
 }
