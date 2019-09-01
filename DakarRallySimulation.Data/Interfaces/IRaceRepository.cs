@@ -14,5 +14,6 @@ namespace DakarRallySimulation.Data.Interfaces
         List<Race> GetAllRaces();
 
         Race GetRace(int id);
+        void StartTheRace(int id);
     }
 }
