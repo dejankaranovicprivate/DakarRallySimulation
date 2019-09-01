@@ -21,5 +21,10 @@ namespace DakarRallySimulation.Data.Repositories
         {
             vehicles.Add(vehicle);
         }
+
+        public void UpdateVehicleInfo(Vehicle vehicle)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
