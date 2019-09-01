@@ -17,7 +17,7 @@ namespace DakarRallySimulation.Data.Models
 
         public DateTime ManufacturingDate { set; get; }
 
-        public string VehicleType { set; get; }
+        public string Type { set; get; }
 
         public int MaxSpeed { set; get; }
 

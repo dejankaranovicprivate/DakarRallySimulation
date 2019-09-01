@@ -13,7 +13,7 @@ namespace DakarRallySimulation.Data.Repositories
         public List<Vehicle> vehicles = new List<Vehicle>()
         {
             new Truck { Id = 1, Status = VehicleStatus.Pending, TeamName = "MAN", Model = "x",
-                          ManufacturingDate = DateTime.Now.Date, VehicleType = "Truck", MaxSpeed = 80,
+                          ManufacturingDate = DateTime.Now.Date, Type = "Truck", MaxSpeed = 80,
                             RepairmentLast = 7, ProbOfLightMalfunction = 6, ProbOfHeavyMalfunction = 4 }
         };
 
@@ -32,7 +32,7 @@ namespace DakarRallySimulation.Data.Repositories
                     vehicleInList.TeamName = vehicle.TeamName;
                     vehicleInList.Model = vehicle.Model;
                     vehicleInList.ManufacturingDate = vehicle.ManufacturingDate;
-                    vehicleInList.VehicleType = vehicle.VehicleType;
+                    vehicleInList.Type = vehicle.Type;
                 }
             }
         }

@@ -13,7 +13,7 @@ namespace DakarRallySimulation.Data.Models
 
         public SportCar()
         {
-            VehicleType = type;
+            Type = type;
             Status = VehicleStatus.Pending;
             MaxSpeed = maxSpeed;
             RepairmentLast = repairmentLast;
