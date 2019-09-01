@@ -181,3 +181,4 @@ D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation\obj\Deb
 D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation\obj\Debug\DakarRallySimulation.csproj.CopyComplete
 D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation\obj\Debug\DakarRallySimulation.dll
 D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation\obj\Debug\DakarRallySimulation.pdb
+D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation\bin\DakarRallySimulation.Data.dll.config

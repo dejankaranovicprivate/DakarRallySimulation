@@ -91,3 +91,4 @@ D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation.Tests\o
 D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation.Tests\obj\Debug\DakarRallySimulation.Tests.csproj.CopyComplete
 D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation.Tests\obj\Debug\DakarRallySimulation.Tests.dll
 D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation.Tests\obj\Debug\DakarRallySimulation.Tests.pdb
+D:\PROJEKTI DOT NET\DakarRally\DakarRallySimulation\DakarRallySimulation.Tests\bin\Debug\DakarRallySimulation.Data.dll.config

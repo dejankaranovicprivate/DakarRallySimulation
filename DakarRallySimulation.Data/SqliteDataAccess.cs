@@ -18,6 +18,22 @@ namespace DakarRallySimulation.Data
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+        public static void SaveRace(Race race)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            {
+                cnn.Execute("insert into Race (Distance, Status, Year) values (@Distance, @Status, @Year)", race);
+            }
+        }
+
+        public static void StartTheRace(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            {
+                cnn.Execute("update Race Status = 'Running' where Id = '" + id + "'");
+            }
+        }
+
         public static List<Race> GetRaces()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
@@ -27,11 +43,35 @@ namespace DakarRallySimulation.Data
             }
         }
 
-        public static void SaveRace(Race race)
+        public static void AddVehicleToRace(Vehicle vehicle)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
             {
-                cnn.Execute("insert into Race (Distance, Status, Year) values (@Distance, @Status, @Year)", race);
+                vehicle.RaceId = Convert.ToInt32(cnn.ExecuteScalar("select Id from Race where Status='Pending'", new DynamicParameters()));
+
+                cnn.Execute("insert into Vehicle (Status, TeamName, Model, ManufacturingDate, Type, " +
+                    "MaxSpeed, RepairmentLast, ProbOfLightMalfunction, ProbOfHeavyMalfunction, FinishTime, RaceId) " +
+                    "values (@Status, @TeamName, @Model, @ManufacturingDate, @Type, " +
+                    "@MaxSpeed, @RepairmentLast, @ProbOfLightMalfunction, @ProbOfHeavyMalfunction, @FinishTime, @RaceId)", vehicle);
+            }
+        }
+
+        public static void UpdateVehicleInfo(int id, Vehicle vehicle)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            {
+                cnn.Execute("update Vehicle Status = @Status, TeamName = @TeamName, Model = @Model, ManufacturingDate = @ManufacturingDate," +
+                    " Type = @Type, MaxSpeed = @MaxSpeed, RepairmentLast = @RepairmentLast, ProbOfLightMalfunction = @ProbOfLightMalfunction, " +
+                    "ProbOfHeavyMalfunction = @ProbOfHeavyMalfunction, FinishTime = @FinishTime, RaceId = @RaceId " +
+                    "where Id = '" + id + "'", vehicle);
+            }
+        }
+
+        public static void RemoveVehicleFromTheRace(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            {
+                cnn.Execute("update Vehicle RaceId = 'NULL' where Id = '" + id + "'");
             }
         }
     }
