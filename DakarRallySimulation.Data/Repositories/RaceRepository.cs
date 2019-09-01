@@ -11,18 +11,10 @@ namespace DakarRallySimulation.Data.Repositories
 {
     public class RaceRepository : IRaceRepository
     {
-        public List<Race> races = new List<Race>()
-        {
-            new Race { Id = 1, Distance = 10000, Status = RaceStatus.Pending, Year = 2019 },
-            new Race { Id = 2, Distance = 10000, Status = RaceStatus.Pending, Year = 2020 }
-        };
-
-        // The solution is for demo purpose
         public void AddRace(int year)
         {
-            races.Add(new Race
+            SqliteDataAccess.SaveRace(new Race
             {
-                Id = races.LastOrDefault().Id + 1,
                 Distance = 10000,
                 Status = RaceStatus.Pending,
                 Year = year
@@ -31,13 +23,12 @@ namespace DakarRallySimulation.Data.Repositories
 
         public List<Race> GetAllRaces()
         {
-            return races;
+            return SqliteDataAccess.GetRaces();
         }
 
         public Race GetRace(int id)
         {
-            var race = races.FirstOrDefault(r => r.Id == id);
-            return race;
+            throw new NotImplementedException();
         }
     }
 }
