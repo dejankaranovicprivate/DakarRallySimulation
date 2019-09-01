@@ -22,5 +22,15 @@ namespace DakarRallySimulation.Controllers
         {
             vehicles.AddVehicleToRace(vehicle);
         }
+
+        public void Put(int id, [FromBody]Vehicle vehicle)
+        {
+            vehicles.UpdateVehicleInfo(id, vehicle);
+        }
+
+        public void Delete(int id)
+        {
+            vehicles.RemoveVehicleFromTheRace(id);
+        }
     }
 }
