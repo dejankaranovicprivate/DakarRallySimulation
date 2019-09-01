@@ -22,9 +22,24 @@ namespace DakarRallySimulation.Data.Repositories
             vehicles.Add(vehicle);
         }
 
-        public void UpdateVehicleInfo(Vehicle vehicle)
+        public void UpdateVehicleInfo(int id, Vehicle vehicle)
         {
-            throw new NotImplementedException();
+            foreach(var vehicleInList in vehicles)
+            {
+                if(vehicleInList.Id == id)
+                {
+                    vehicleInList.Status = vehicle.Status;
+                    vehicleInList.TeamName = vehicle.TeamName;
+                    vehicleInList.Model = vehicle.Model;
+                    vehicleInList.ManufacturingDate = vehicle.ManufacturingDate;
+                    vehicleInList.VehicleType = vehicle.VehicleType;
+                }
+            }
+        }
+
+        public void RemoveVehicleFromTheRace(int id)
+        {
+            vehicles.Remove(vehicles.Single(s => s.Id == id));
         }
     }
 }

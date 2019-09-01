@@ -10,7 +10,7 @@ namespace DakarRallySimulation.Data.Interfaces
     public interface IVehicleRepository
     {
         void AddVehicleToRace(Vehicle vehicle);
-
-        void UpdateVehicleInfo(Vehicle vehicle);
+        void UpdateVehicleInfo(int id, Vehicle vehicle);
+        void RemoveVehicleFromTheRace(int id);
     }
 }
