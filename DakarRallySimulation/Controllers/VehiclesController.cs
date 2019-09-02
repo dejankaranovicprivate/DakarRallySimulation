@@ -28,6 +28,11 @@ namespace DakarRallySimulation.Controllers
             vehicles.UpdateVehicleInfo(id, vehicle);
         }
 
+        public IEnumerable<Vehicle> Get()
+        {
+            return vehicles.GetVehiclesLeaderboard();
+        }
+
         public void Delete(int id)
         {
             vehicles.RemoveVehicleFromTheRace(id);

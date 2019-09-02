@@ -12,5 +12,6 @@ namespace DakarRallySimulation.Data.Interfaces
         void AddVehicleToRace(Vehicle vehicle);
         void UpdateVehicleInfo(int id, Vehicle vehicle);
         void RemoveVehicleFromTheRace(int id);
+        IEnumerable<Vehicle> GetVehiclesLeaderboard();
     }
 }

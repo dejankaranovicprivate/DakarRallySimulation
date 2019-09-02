@@ -12,13 +12,7 @@ namespace DakarRallySimulation.Controllers
 {
     public class RacesController : ApiController
     {
-        //private IRaceRepository races = new RaceRepository();
-        private IRaceRepository races;
-
-        public RacesController(IRaceRepository _races)
-        {
-            this.races = _races;
-        }
+        private IRaceRepository races = new RaceRepository();
 
         public void Post([FromBody]int year)
         {

@@ -15,7 +15,8 @@ namespace DakarRallySimulation.Data
     {
         private static string LoadConnentionString(string id = "Default")
         {
-            return ConfigurationManager.ConnectionStrings[id].ConnectionString;
+            //return ConfigurationManager.ConnectionStrings[id].ConnectionString;
+            return @"Data Source=.\DemoDB.db;Version=3;New=False;Compress=True";
         }
 
         public static void SaveRace(Race race)
@@ -64,6 +65,15 @@ namespace DakarRallySimulation.Data
                     " Type = @Type, MaxSpeed = @MaxSpeed, RepairmentLast = @RepairmentLast, ProbOfLightMalfunction = @ProbOfLightMalfunction, " +
                     "ProbOfHeavyMalfunction = @ProbOfHeavyMalfunction, FinishTime = @FinishTime, RaceId = @RaceId " +
                     "where Id = '" + id + "'", vehicle);
+            }
+        }
+
+        public static List<Vehicle> GetVehiclesLeaderboard()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            {
+                var output = cnn.Query<Vehicle>("select * from Vehicle order by FinishTime", new DynamicParameters());
+                return output.ToList();
             }
         }
 
