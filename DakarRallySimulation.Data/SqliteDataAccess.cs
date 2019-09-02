@@ -31,7 +31,8 @@ namespace DakarRallySimulation.Data
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
             {
-                cnn.Execute("update Race Status = 'Running' where Id = '" + id + "'");
+                cnn.Execute("update Race set Status = 'Running' where Id = '" + id + "';" +
+                    " update Vehicle set Status = 'Running' where RaceId = '" + id + "'");
             }
         }
 
@@ -61,7 +62,7 @@ namespace DakarRallySimulation.Data
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
             {
-                cnn.Execute("update Vehicle Status = @Status, TeamName = @TeamName, Model = @Model, ManufacturingDate = @ManufacturingDate," +
+                cnn.Execute("update Vehicle set Status = @Status, TeamName = @TeamName, Model = @Model, ManufacturingDate = @ManufacturingDate," +
                     " Type = @Type, MaxSpeed = @MaxSpeed, RepairmentLast = @RepairmentLast, ProbOfLightMalfunction = @ProbOfLightMalfunction, " +
                     "ProbOfHeavyMalfunction = @ProbOfHeavyMalfunction, FinishTime = @FinishTime, RaceId = @RaceId " +
                     "where Id = '" + id + "'", vehicle);
@@ -81,7 +82,7 @@ namespace DakarRallySimulation.Data
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
             {
-                cnn.Execute("update Vehicle RaceId = 'NULL' where Id = '" + id + "'");
+                cnn.Execute("update Vehicle set RaceId = 'NULL' where Id = '" + id + "'");
             }
         }
     }
