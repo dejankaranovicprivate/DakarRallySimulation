@@ -78,6 +78,15 @@ namespace DakarRallySimulation.Data
             }
         }
 
+        public static IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            {
+                var output = cnn.Query<Vehicle>("select * from Vehicle where Type = '" + type + "' order by FinishTime", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
         public static void RemoveVehicleFromTheRace(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))

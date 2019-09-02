@@ -25,6 +25,11 @@ namespace DakarRallySimulation.Data.Repositories
             return SqliteDataAccess.GetVehiclesLeaderboard();
         }
 
+        public IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type)
+        {
+            return SqliteDataAccess.GetVehiclesLeaderboardByType(type);
+        }
+
         public void RemoveVehicleFromTheRace(int id)
         {
             SqliteDataAccess.RemoveVehicleFromTheRace(id);
