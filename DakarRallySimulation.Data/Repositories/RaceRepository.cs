@@ -1,4 +1,5 @@
-﻿using DakarRallySimulation.Data.Interfaces;
+﻿using DakarRallySimulation.Data.DbAdapter;
+using DakarRallySimulation.Data.Interfaces;
 using DakarRallySimulation.Data.Models;
 using DakarRallySimulation.Models;
 using System;
@@ -13,7 +14,7 @@ namespace DakarRallySimulation.Data.Repositories
     {
         public void AddRace(int year)
         {
-            SqliteDataAccess.SaveRace(new Race
+            RaceDataAccess.SaveRace(new Race
             {
                 Distance = 10000,
                 Status = RaceStatus.Pending,
@@ -23,12 +24,12 @@ namespace DakarRallySimulation.Data.Repositories
 
         public void StartTheRace(int id)
         {
-            SqliteDataAccess.StartTheRace(id);
+            RaceDataAccess.StartTheRace(id);
         }
 
         public List<Race> GetAllRaces()
         {
-            return SqliteDataAccess.GetRaces();
+            return RaceDataAccess.GetRaces();
         }
 
         public Race GetRace(int id)

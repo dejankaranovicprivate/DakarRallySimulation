@@ -1,4 +1,5 @@
-﻿using DakarRallySimulation.Data.Interfaces;
+﻿using DakarRallySimulation.Data.DbAdapter;
+using DakarRallySimulation.Data.Interfaces;
 using DakarRallySimulation.Data.Models;
 using System;
 using System.Collections.Generic;
@@ -12,27 +13,27 @@ namespace DakarRallySimulation.Data.Repositories
     {
         public void AddVehicleToRace(Vehicle vehicle)
         {
-            SqliteDataAccess.AddVehicleToRace(vehicle);
+            VehicleDataAccess.AddVehicleToRace(vehicle);
         }
 
         public void UpdateVehicleInfo(int id, Vehicle vehicle)
         {
-            SqliteDataAccess.UpdateVehicleInfo(id, vehicle);
+            VehicleDataAccess.UpdateVehicleInfo(id, vehicle);
         }
 
         public IEnumerable<Vehicle> GetVehiclesLeaderboard()
         {
-            return SqliteDataAccess.GetVehiclesLeaderboard();
+            return VehicleDataAccess.GetVehiclesLeaderboard();
         }
 
         public IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type)
         {
-            return SqliteDataAccess.GetVehiclesLeaderboardByType(type);
+            return VehicleDataAccess.GetVehiclesLeaderboardByType(type);
         }
 
         public void RemoveVehicleFromTheRace(int id)
         {
-            SqliteDataAccess.RemoveVehicleFromTheRace(id);
+            VehicleDataAccess.RemoveVehicleFromTheRace(id);
         }
     }
 }

@@ -2,52 +2,19 @@
 using Dapper;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DakarRallySimulation.Data
+namespace DakarRallySimulation.Data.DbAdapter
 {
-    public class SqliteDataAccess
+    public static class VehicleDataAccess
     {
-        private static string LoadConnentionString(string id = "Default")
-        {
-            //return ConfigurationManager.ConnectionStrings[id].ConnectionString;
-            return @"Data Source=.\DemoDB.db;Version=3;New=False;Compress=True";
-        }
-
-        public static void SaveRace(Race race)
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
-            {
-                cnn.Execute("insert into Race (Distance, Status, Year) values (@Distance, @Status, @Year)", race);
-            }
-        }
-
-        public static void StartTheRace(int id)
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
-            {
-                cnn.Execute("update Race set Status = 'Running' where Id = '" + id + "';" +
-                    " update Vehicle set Status = 'Running' where RaceId = '" + id + "'");
-            }
-        }
-
-        public static List<Race> GetRaces()
-        {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
-            {
-                var output = cnn.Query<Race>("select * from Race", new DynamicParameters());
-                return output.ToList();
-            }
-        }
-
         public static void AddVehicleToRace(Vehicle vehicle)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
                 vehicle.RaceId = Convert.ToInt32(cnn.ExecuteScalar("select Id from Race where Status='Pending'", new DynamicParameters()));
 
@@ -60,7 +27,7 @@ namespace DakarRallySimulation.Data
 
         public static void UpdateVehicleInfo(int id, Vehicle vehicle)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
                 cnn.Execute("update Vehicle set Status = @Status, TeamName = @TeamName, Model = @Model, ManufacturingDate = @ManufacturingDate," +
                     " Type = @Type, MaxSpeed = @MaxSpeed, RepairmentLast = @RepairmentLast, ProbOfLightMalfunction = @ProbOfLightMalfunction, " +
@@ -71,7 +38,7 @@ namespace DakarRallySimulation.Data
 
         public static List<Vehicle> GetVehiclesLeaderboard()
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
                 var output = cnn.Query<Vehicle>("select * from Vehicle order by FinishTime", new DynamicParameters());
                 return output.ToList();
@@ -80,7 +47,7 @@ namespace DakarRallySimulation.Data
 
         public static IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
                 var output = cnn.Query<Vehicle>("select * from Vehicle where Type = '" + type + "' order by FinishTime", new DynamicParameters());
                 return output.ToList();
@@ -89,7 +56,7 @@ namespace DakarRallySimulation.Data
 
         public static void RemoveVehicleFromTheRace(int id)
         {
-            using (IDbConnection cnn = new SQLiteConnection(LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
                 cnn.Execute("update Vehicle set RaceId = 'NULL' where Id = '" + id + "'");
             }
