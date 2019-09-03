@@ -32,9 +32,9 @@ namespace DakarRallySimulation.Data.Repositories
             return RaceDataAccess.GetRaces();
         }
 
-        public Race GetRace(int id)
+        public Race GetRaceById(int id)
         {
-            throw new NotImplementedException();
+            return RaceDataAccess.GetRaceById(id);
         }
     }
 }

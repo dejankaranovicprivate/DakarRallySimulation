@@ -31,7 +31,7 @@ namespace DakarRallySimulation.Controllers
 
         public IHttpActionResult Get(int id)
         {
-            var race = races.GetRace(id);
+            var race = races.GetRaceById(id);
             if (race == null)
             {
                 return NotFound();
