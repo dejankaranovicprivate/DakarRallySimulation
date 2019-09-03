@@ -20,5 +20,14 @@ namespace DakarRallySimulation.Data.DbAdapter
                     "values (@VehicleId, @Distance, @NumberOfLightMalfunctions, @DoesHeavyMalfunctionsHappened, @FinishTime)", statistics);
             }
         }
+
+        internal static VehicleStatistics GetStatisticForVehicle(int vehicleId)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
+            {
+                var output = cnn.Query<VehicleStatistics>("select * from VehicleStatistics where VehicleId = '" + vehicleId + "'", new DynamicParameters());
+                return output.ToList()[0];
+            }
+        }
     }
 }
