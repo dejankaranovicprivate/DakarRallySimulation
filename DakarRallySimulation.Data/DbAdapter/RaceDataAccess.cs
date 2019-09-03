@@ -14,15 +14,15 @@ namespace DakarRallySimulation.Data.DbAdapter
     {
         internal static void SaveRace(Race race)
         {
-            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
-                cnn.Execute("insert into Race (Distance, Status, Year) values (@Distance, @Status, @Year)", race);
+                cnn.Execute("insert into Race (Status, Year) values (@Status, @Year)", race);
             }
         }
 
         internal static void StartTheRace(int id)
         {
-            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
                 cnn.Execute("update Race set Status = 'Running' where Id = '" + id + "';" +
                     " update Vehicle set Status = 'Running' where RaceId = '" + id + "'");
@@ -31,7 +31,7 @@ namespace DakarRallySimulation.Data.DbAdapter
 
         internal static List<Race> GetRaces()
         {
-            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
             {
                 var output = cnn.Query<Race>("select * from Race", new DynamicParameters());
                 return output.ToList();

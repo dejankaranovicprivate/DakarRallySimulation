@@ -13,7 +13,7 @@ namespace DakarRallySimulation.Data.DbAdapter
 {
     public class SqliteDataAccess
     {
-        public static string LoadConnentionString(string id = "Default")
+        public static string LoadConnectionString(string id = "Default")
         {
             //return ConfigurationManager.ConnectionStrings[id].ConnectionString;
             return @"Data Source=.\DemoDB.db;Version=3;New=False;Compress=True";
