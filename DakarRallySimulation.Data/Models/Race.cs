@@ -10,7 +10,7 @@ namespace DakarRallySimulation.Data.Models
     {
         public int Id { set; get; }
 
-        public int Distance { set; get; }
+        public const int Distance = 10000;
 
         public RaceStatus Status { set; get; }
 

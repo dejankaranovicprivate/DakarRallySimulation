@@ -16,7 +16,6 @@ namespace DakarRallySimulation.Data.Repositories
         {
             RaceDataAccess.SaveRace(new Race
             {
-                Distance = 10000,
                 Status = RaceStatus.Pending,
                 Year = year
             });
