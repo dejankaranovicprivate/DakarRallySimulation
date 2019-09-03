@@ -50,6 +50,15 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
+        internal static IEnumerable<Vehicle> GetVehiclesByRaceId(int raceId)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
+            {
+                var output = cnn.Query<Vehicle>("select * from Vehicle where RaceId = '" + raceId + "'", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
         internal static void RemoveVehicleFromTheRace(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))

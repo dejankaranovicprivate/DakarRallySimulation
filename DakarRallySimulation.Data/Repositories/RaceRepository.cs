@@ -1,4 +1,5 @@
 ﻿using DakarRallySimulation.Data.DbAdapter;
+using DakarRallySimulation.Data.Engine;
 using DakarRallySimulation.Data.Interfaces;
 using DakarRallySimulation.Data.Models;
 using DakarRallySimulation.Models;
@@ -24,6 +25,7 @@ namespace DakarRallySimulation.Data.Repositories
         public void StartTheRace(int id)
         {
             RaceDataAccess.StartTheRace(id);
+            VehiclesCalculations.VehiclesInRaceSimulation(id);
         }
 
         public List<Race> GetAllRaces()
