@@ -7,18 +7,8 @@ namespace DakarRallySimulation.Data.Models
 {
     public class CrossMotorcycle : Motorcycle
     {
-        private const int maxSpeed = 85;
-        private const int probOfLightMalfunction = 3;
-        private const int probOfHeavyMalfunction = 2;
-
-        public CrossMotorcycle()
-        {
-            Type = type;
-            Status = VehicleStatus.Pending;
-            MaxSpeed = maxSpeed;
-            RepairmentLast = repairmentLast;
-            ProbOfLightMalfunction = probOfLightMalfunction;
-            ProbOfHeavyMalfunction = probOfHeavyMalfunction;
-        }
+        internal const int maxSpeed = 85;
+        internal const int probOfLightMalfunction = 3;
+        internal const int probOfHeavyMalfunction = 2;
     }
 }

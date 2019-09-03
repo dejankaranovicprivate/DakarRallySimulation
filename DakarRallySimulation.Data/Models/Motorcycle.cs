@@ -7,7 +7,7 @@ namespace DakarRallySimulation.Data.Models
 {
     public class Motorcycle : Vehicle
     {
-        protected const int repairmentLast = 3;
-        protected const string type = "Motorcycle";
+        internal const int repairmentLast = 3;
+        internal const string type = "Motorcycle";
     }
 }

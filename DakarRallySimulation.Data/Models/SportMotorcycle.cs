@@ -7,18 +7,8 @@ namespace DakarRallySimulation.Data.Models
 {
     public class SportMotorcycle : Motorcycle
     {
-        private const int maxSpeed = 130;
-        private const int probOfLightMalfunction = 18;
-        private const int probOfHeavyMalfunction = 10;
-
-        public SportMotorcycle()
-        {
-            Type = type;
-            Status = VehicleStatus.Pending;
-            MaxSpeed = maxSpeed;
-            RepairmentLast = repairmentLast;
-            ProbOfLightMalfunction = probOfLightMalfunction;
-            ProbOfHeavyMalfunction = probOfHeavyMalfunction;
-        }
+        internal const int maxSpeed = 130;
+        internal const int probOfLightMalfunction = 18;
+        internal const int probOfHeavyMalfunction = 10;
     }
 }

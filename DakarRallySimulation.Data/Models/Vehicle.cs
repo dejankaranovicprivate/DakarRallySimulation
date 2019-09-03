@@ -21,14 +21,6 @@ namespace DakarRallySimulation.Data.Models
 
         public string Type { set; get; }
 
-        public int MaxSpeed { set; get; }
-
-        public int RepairmentLast { set; get; }
-
-        public int ProbOfLightMalfunction { set; get; }
-
-        public int ProbOfHeavyMalfunction { set; get; }
-
         public int FinishTime { set; get; }
     }
 }
