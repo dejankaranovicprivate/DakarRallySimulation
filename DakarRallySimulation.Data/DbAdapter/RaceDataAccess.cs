@@ -12,7 +12,7 @@ namespace DakarRallySimulation.Data.DbAdapter
 {
     public static class RaceDataAccess
     {
-        public static void SaveRace(Race race)
+        internal static void SaveRace(Race race)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
@@ -20,7 +20,7 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
-        public static void StartTheRace(int id)
+        internal static void StartTheRace(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
@@ -29,13 +29,18 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
-        public static List<Race> GetRaces()
+        internal static List<Race> GetRaces()
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
                 var output = cnn.Query<Race>("select * from Race", new DynamicParameters());
                 return output.ToList();
             }
+        }
+
+        internal static Race GetRaceById(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

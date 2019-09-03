@@ -12,7 +12,7 @@ namespace DakarRallySimulation.Data.DbAdapter
 {
     public static class VehicleDataAccess
     {
-        public static void AddVehicleToRace(Vehicle vehicle)
+        internal static void AddVehicleToRace(Vehicle vehicle)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
@@ -25,7 +25,7 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
-        public static void UpdateVehicleInfo(int id, Vehicle vehicle)
+        internal static void UpdateVehicleInfo(int id, Vehicle vehicle)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
@@ -36,7 +36,7 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
-        public static List<Vehicle> GetVehiclesLeaderboard()
+        internal static List<Vehicle> GetVehiclesLeaderboard()
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
@@ -45,7 +45,7 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
-        public static IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type)
+        internal static IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
@@ -54,7 +54,7 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
-        public static void RemoveVehicleFromTheRace(int id)
+        internal static void RemoveVehicleFromTheRace(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnentionString()))
             {
