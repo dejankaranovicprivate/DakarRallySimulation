@@ -59,6 +59,17 @@ namespace DakarRallySimulation.Data.DbAdapter
             }
         }
 
+        internal static IEnumerable<Vehicle> GetVehiclesByMultipleParameters(string team, string model, DateTime manufacturingDate, VehicleStatus status, int distance)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))
+            {
+                var output = cnn.Query<Vehicle>("select * from Vehicle inner join VehicleStatistics on Vehicle.Id = VehicleStatistics.VehicleId " +
+                    "where Vehicle.TeamName = '" + team + "' and Vehicle.Model = '" + model + "' and Vehicle.ManufacturingDate = '" + manufacturingDate + "' " +
+                    "and Vehicle.Status = '" + status + "' and VehicleStatistics.Distance = '" + distance + "' order by Vehicle.Id", new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
         internal static void RemoveVehicleFromTheRace(int id)
         {
             using (IDbConnection cnn = new SQLiteConnection(SqliteDataAccess.LoadConnectionString()))

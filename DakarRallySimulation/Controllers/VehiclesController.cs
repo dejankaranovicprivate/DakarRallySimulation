@@ -38,6 +38,11 @@ namespace DakarRallySimulation.Controllers
             return vehicles.GetVehiclesLeaderboardByType(type);
         }
 
+        public IEnumerable<Vehicle> Get(string team, string model, DateTime manufacturingDate, VehicleStatus status, int distance)
+        {
+            return vehicles.GetVehiclesByMultipleParameters(team, model, manufacturingDate, status, distance);
+        }
+
         public void Delete(int id)
         {
             vehicles.RemoveVehicleFromTheRace(id);

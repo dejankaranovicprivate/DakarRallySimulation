@@ -14,5 +14,6 @@ namespace DakarRallySimulation.Data.Interfaces
         void RemoveVehicleFromTheRace(int id);
         IEnumerable<Vehicle> GetVehiclesLeaderboard();
         IEnumerable<Vehicle> GetVehiclesLeaderboardByType(string type);
+        IEnumerable<Vehicle> GetVehiclesByMultipleParameters(string team, string model, DateTime manufacturingDate, VehicleStatus status, int distance);
     }
 }

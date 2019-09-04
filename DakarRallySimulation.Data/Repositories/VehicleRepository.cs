@@ -31,6 +31,11 @@ namespace DakarRallySimulation.Data.Repositories
             return VehicleDataAccess.GetVehiclesLeaderboardByType(type);
         }
 
+        public IEnumerable<Vehicle> GetVehiclesByMultipleParameters(string team, string model, DateTime manufacturingDate, VehicleStatus status, int distance)
+        {
+            return VehicleDataAccess.GetVehiclesByMultipleParameters(team, model, manufacturingDate, status, distance);
+        }
+
         public void RemoveVehicleFromTheRace(int id)
         {
             VehicleDataAccess.RemoveVehicleFromTheRace(id);
