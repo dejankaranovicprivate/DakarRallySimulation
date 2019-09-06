@@ -21,12 +21,10 @@ namespace DakarRallySimulation.Data.Engine
         {
             var vehicleStatistics = new VehicleStatistics();
 
-            int maxSpeed = 0;
-            int probOfHeavyMalfunction = 0;
-            int probOfLightMalfunction = 0;
-            int repairmentLast = 0;
-
-            SetVehiclePerformances(ref maxSpeed, ref probOfHeavyMalfunction, ref probOfLightMalfunction, ref repairmentLast, vehicle.Type);
+            int maxSpeed = vehicle.GetMaxSpeed();
+            int probOfHeavyMalfunction = vehicle.GetProbOfHeavyMalfunction();
+            int probOfLightMalfunction = vehicle.GetProbOfLightMalfunction();
+            int repairmentLast = vehicle.GetRepairmentLast();
 
             var timeInPerfectCondition = Convert.ToInt32(Race.Distance / maxSpeed);
 
@@ -47,43 +45,6 @@ namespace DakarRallySimulation.Data.Engine
             }
 
             return vehicleStatistics;
-        }
-
-        private static void SetVehiclePerformances(ref int maxSpeed, ref int probOfHeavyMalfunction, ref int probOfLightMalfunction, ref int repairmentLast, string vehicleType)
-        {
-            switch (vehicleType)
-            {
-                case "SportCar":
-                    maxSpeed = SportCar.maxSpeed;
-                    probOfHeavyMalfunction = SportCar.probOfHeavyMalfunction;
-                    probOfLightMalfunction = SportCar.probOfLightMalfunction;
-                    repairmentLast = Car.repairmentLast;
-                    break;
-                case "TerrainCar":
-                    maxSpeed = TerrainCar.maxSpeed;
-                    probOfHeavyMalfunction = TerrainCar.probOfHeavyMalfunction;
-                    probOfLightMalfunction = TerrainCar.probOfLightMalfunction;
-                    repairmentLast = Car.repairmentLast;
-                    break;
-                case "SportMotorcycle":
-                    maxSpeed = SportMotorcycle.maxSpeed;
-                    probOfHeavyMalfunction = SportMotorcycle.probOfHeavyMalfunction;
-                    probOfLightMalfunction = SportMotorcycle.probOfLightMalfunction;
-                    repairmentLast = Motorcycle.repairmentLast;
-                    break;
-                case "CrossMotorcycle":
-                    maxSpeed = CrossMotorcycle.maxSpeed;
-                    probOfHeavyMalfunction = CrossMotorcycle.probOfHeavyMalfunction;
-                    probOfLightMalfunction = CrossMotorcycle.probOfLightMalfunction;
-                    repairmentLast = Motorcycle.repairmentLast;
-                    break;
-                default:
-                    maxSpeed = Truck.maxSpeed;
-                    probOfHeavyMalfunction = Truck.probOfHeavyMalfunction;
-                    probOfLightMalfunction = Truck.probOfLightMalfunction;
-                    repairmentLast = Truck.repairmentLast;
-                    break;
-            }
         }
 
         private static bool DoesMalfunctionHappened(int possibility)

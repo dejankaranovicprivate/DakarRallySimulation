@@ -10,5 +10,15 @@ namespace DakarRallySimulation.Data.Models
         internal const int maxSpeed = 130;
         internal const int probOfLightMalfunction = 18;
         internal const int probOfHeavyMalfunction = 10;
+
+        public override int GetMaxSpeed()
+        {
+            return maxSpeed;
+        }
+
+        public override int GetProbOfHeavyMalfunction()
+        {
+            return probOfLightMalfunction;
+        }
     }
 }
