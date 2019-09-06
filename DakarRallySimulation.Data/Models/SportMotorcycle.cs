@@ -20,5 +20,10 @@ namespace DakarRallySimulation.Data.Models
         {
             return probOfLightMalfunction;
         }
+
+        public override int GetProbOfLightMalfunction()
+        {
+            return probOfLightMalfunction;
+        }
     }
 }

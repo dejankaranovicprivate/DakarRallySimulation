@@ -5,7 +5,7 @@ using System.Web;
 
 namespace DakarRallySimulation.Data.Models
 {
-    public class Vehicle
+    public abstract class Vehicle
     {
         public int Id { set; get; }
 
@@ -23,24 +23,12 @@ namespace DakarRallySimulation.Data.Models
 
         public int FinishTime { set; get; }
 
-        public virtual int GetMaxSpeed()
-        {
-            return 0;
-        }
+        public abstract int GetMaxSpeed();
 
-        public virtual int GetProbOfHeavyMalfunction()
-        {
-            return 0;
-        }
+        public abstract int GetProbOfHeavyMalfunction();
 
-        public virtual int GetProbOfLightMalfunction()
-        {
-            return 0;
-        }
-
-        public virtual int GetRepairmentLast()
-        {
-            return 0;
-        }
+        public abstract int GetProbOfLightMalfunction();
+        
+        public abstract int GetRepairmentLast();
     }
 }

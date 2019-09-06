@@ -9,6 +9,21 @@ namespace DakarRallySimulation.Data.Models
     {
         internal const int repairmentLast = 3;
 
+        public override int GetMaxSpeed()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int GetProbOfHeavyMalfunction()
+        {
+            throw new NotImplementedException();
+        }
+
+        public override int GetProbOfLightMalfunction()
+        {
+            throw new NotImplementedException();
+        }
+
         public override int GetRepairmentLast()
         {
             return repairmentLast;
